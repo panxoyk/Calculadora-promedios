@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Promedio } from '../interfaces/interfaces'
+import { Promedio } from '../types/types'
 
 interface PromediosState {
     promedios: Promedio[],

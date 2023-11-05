@@ -1,5 +1,5 @@
 import { usePromediosStore } from '../store/promediosStore'
-import { Nota } from '../interfaces/interfaces'
+import { Nota } from '../types/types'
 
 interface NotaFormProps {
     idPromedio: number,

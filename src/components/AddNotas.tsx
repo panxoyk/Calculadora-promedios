@@ -1,6 +1,6 @@
 import NotaForm from './NotaForm'
 import { usePromediosStore } from '../store/promediosStore'
-import { Promedio, Nota } from '../interfaces/interfaces'
+import { Promedio, Nota } from '../types/types'
 
 interface AddNotasProps {
     promedio: Promedio
