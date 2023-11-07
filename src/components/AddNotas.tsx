@@ -1,6 +1,14 @@
 import NotaForm from './NotaForm'
-import { usePromediosStore } from '../store/promediosStore'
 import { Promedio, Nota } from '../types/types'
+import { usePromediosStore } from '../store/promediosStore'
+
+import {
+    Button
+} from '@/components/ui/button'
+
+import {
+    PlusIcon
+} from '@radix-ui/react-icons'
 
 interface AddNotasProps {
     promedio: Promedio
@@ -11,11 +19,13 @@ const AddNotas = ({ promedio, notas }: AddNotasProps) => {
     const { addNota } = usePromediosStore()
 
     return (
-        <div>
+        <div className='grid grid-cols-3 gap-4'>
             {
                 notas.map((nota) => <NotaForm key={nota.id} idPromedio={promedio.id} nota={nota} />)
             }
-            <button onClick={() => addNota(promedio.id)}> Ingresar nueva nota a {promedio.nombre} </button>
+            <Button className='w-full h-full' variant='outline' onClick={() => addNota(promedio.id)}>
+                <PlusIcon className=' text-primary' />
+            </Button>
         </div>
     )
 }
