@@ -80,7 +80,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
             promedioFinal += promedioNotas * promedio.porcentaje/100
         })
         set({
-            resultado: promedioFinal
+            resultado: Number(promedioFinal.toFixed(2))
         })
     },
     changeNotaNombre: (idPromedio, idNota, nuevoNombre) => {

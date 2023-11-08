@@ -1,14 +1,10 @@
-import NotaForm from './NotaForm'
 import { Promedio, Nota } from '../types/types'
 import { usePromediosStore } from '../store/promediosStore'
 
-import {
-    Button
-} from '@/components/ui/button'
+import NotaForm from './NotaForm'
 
-import {
-    PlusIcon
-} from '@radix-ui/react-icons'
+import { Button } from '@/components/ui/button'
+import { PlusIcon } from '@radix-ui/react-icons'
 
 interface AddNotasProps {
     promedio: Promedio
@@ -23,7 +19,7 @@ const AddNotas = ({ promedio, notas }: AddNotasProps) => {
             {
                 notas.map((nota) => <NotaForm key={nota.id} idPromedio={promedio.id} nota={nota} />)
             }
-            <Button className='w-full h-full dark:hover:border-primary dark:hover:bg-transparent' variant='outline' onClick={() => addNota(promedio.id)}>
+            <Button className='w-full h-full text-primary hover:text-primary hover:border-primary dark:hover:bg-transparent' variant='outline' onClick={() => addNota(promedio.id)}>
                 <PlusIcon />
             </Button>
         </div>

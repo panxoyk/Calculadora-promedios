@@ -1,17 +1,9 @@
 import { usePromediosStore } from '../store/promediosStore'
 import { usePromedioFormStore } from '../store/promedioFormStore'
 
-import {
-    Input
-} from '@/components/ui/input'
-
-import {
-    Button
-} from '@/components/ui/button'
-
-import {
-    Label
-} from '@/components/ui/label'
+import { Input } from '@/components/ui/input'
+import { Button } from '@/components/ui/button'
+import { Label } from '@/components/ui/label'
 
 const PromediosForm = () => {
     const { addPromedio } = usePromediosStore()
@@ -64,7 +56,7 @@ const PromediosForm = () => {
                     autoComplete='off'
                     />
                 </div>
-                <Button className='w-9/12 lg:w-fit dark:hover:border-primary' variant='outline' type='submit'> Añadir </Button>
+                <Button className='w-9/12 lg:w-fit hover:border-primary' variant='outline' type='submit'> Añadir </Button>
             </form>
         </div>
     )

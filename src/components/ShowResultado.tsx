@@ -1,8 +1,6 @@
 import { usePromediosStore } from '../store/promediosStore'
 
-import {
-    Button
-} from '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 
 const ShowResultado = () => {
 	const { resultado, calculateResultado } = usePromediosStore()
