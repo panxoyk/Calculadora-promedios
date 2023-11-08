@@ -23,8 +23,8 @@ const AddNotas = ({ promedio, notas }: AddNotasProps) => {
             {
                 notas.map((nota) => <NotaForm key={nota.id} idPromedio={promedio.id} nota={nota} />)
             }
-            <Button className='w-full h-full' variant='outline' onClick={() => addNota(promedio.id)}>
-                <PlusIcon className=' text-primary' />
+            <Button className='w-full h-full dark:hover:border-primary dark:hover:bg-transparent' variant='outline' onClick={() => addNota(promedio.id)}>
+                <PlusIcon />
             </Button>
         </div>
     )

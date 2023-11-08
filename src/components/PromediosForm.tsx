@@ -27,7 +27,7 @@ const PromediosForm = () => {
 	}
 
     return (
-        <div className=' border-b pb-4 lg:pt-4'>
+        <div className='border-b pb-4 lg:pt-4'>
             <form className='flex flex-col lg:flex-row justify-center items-center lg:items-end gap-2 lg:gap-4' onSubmit={handleSubmit}>
                 <div className='w-9/12 lg:w-1/3'>
                     <Label className='pl-2' htmlFor='form.nombre'>
@@ -44,6 +44,7 @@ const PromediosForm = () => {
                     }
                     required
                     autoFocus
+                    autoComplete='off'
                     />
                 </div>
                 <div className='w-9/12 lg:w-1/6'>
@@ -60,9 +61,10 @@ const PromediosForm = () => {
                         changePorcentaje(event.target.value)
                     }
                     required
+                    autoComplete='off'
                     />
                 </div>
-                <Button className='w-9/12 lg:w-fit' variant='secondary' type='submit'> Añadir </Button>
+                <Button className='w-9/12 lg:w-fit dark:hover:border-primary' variant='outline' type='submit'> Añadir </Button>
             </form>
         </div>
     )

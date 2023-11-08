@@ -41,7 +41,7 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
                 onChange={(e) => changeNotaEvaluacion(idPromedio, nota.id, parseFloat(e.target.value))}
                 required
                 />
-                <Button className='col-span-2 lg:col-span-1 w-full' variant='outline' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
+                <Button className='col-span-2 lg:col-span-1 w-full dark:text-muted-foreground' variant='secondary' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
                     <TrashIcon className='w-6 h-6' />
                 </Button>
             </div>
