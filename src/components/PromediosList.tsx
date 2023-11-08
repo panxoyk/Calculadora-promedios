@@ -13,7 +13,6 @@ import {
 } from '@/components/ui/button'
 
 import {
-	TrashIcon,
 	Cross1Icon
 } from '@radix-ui/react-icons'
 
@@ -21,7 +20,7 @@ const PromediosList = () => {
     const { promedios, deletePromedio } = usePromediosStore()
 
     return (
-        <div className='grid grid-cols-1 gap-y-2 my-4'>
+        <div className='grid grid-cols-1 gap-y-2 py-4 mx-4 xl:mx-0'>
             {
 				promedios.map((promedio) => {
 					const { id, nombre, porcentaje, notas } = promedio
@@ -29,8 +28,8 @@ const PromediosList = () => {
 						<Card className='w-full' key={id}>
 							<CardHeader>
 								<CardTitle className='flex flex-row justify-between items-center'>
-									<div className='text-2xl font-semibold'>
-										{nombre} <span className='text-2xl text-muted-foreground'> {porcentaje} % </span>
+									<div className='text-lg lg:text-2xl font-semibold'>
+										{nombre} <span className='text-lg lg:text-2xl text-muted-foreground'> {porcentaje}% </span>
 									</div>
 									<Button variant='link' size='icon' onClick={() => deletePromedio(id)}>
 										<Cross1Icon className='w-6 h-6 text-destructive' />

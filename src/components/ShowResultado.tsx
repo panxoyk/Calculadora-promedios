@@ -1,12 +1,18 @@
 import { usePromediosStore } from '../store/promediosStore'
 
+import {
+    Button
+} from '@/components/ui/button'
+
 const ShowResultado = () => {
 	const { resultado, calculateResultado } = usePromediosStore()
 
     return (
-        <div>
-            <button onClick={() => calculateResultado()}> Calcular Promedio </button>
-			<h3> {resultado} </h3>
+        <div className='flex flex-col w-9/12 lg:w-fit m-auto gap-2'>
+            <div className='text-center text-3xl relative rounded bg-muted px-[0.3rem] py-[0.2rem] font-mono font-semibold'>
+                {resultado}
+            </div>
+            <Button className='text-xl md:text-xl px-8 font-mono' onClick={() => calculateResultado()}> Calcular </Button>
         </div>
     )
 }

@@ -19,7 +19,7 @@ const AddNotas = ({ promedio, notas }: AddNotasProps) => {
     const { addNota } = usePromediosStore()
 
     return (
-        <div className='grid grid-cols-3 gap-4'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-8'>
             {
                 notas.map((nota) => <NotaForm key={nota.id} idPromedio={promedio.id} nota={nota} />)
             }

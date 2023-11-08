@@ -22,15 +22,16 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
     const { changeNotaNombre, changeNotaEvaluacion, deleteNota } = usePromediosStore()
 
     return (
-        <div className='flex flex-col gap-2'>
+        <div className='flex flex-col gap-4 lg:gap-2'>
             <Input
             placeholder='Nombre'
             type='text'
             value={nota.nombre}
             onChange={(e) => changeNotaNombre(idPromedio, nota.id, e.target.value)}
             required
+            autoFocus
             />
-            <div className='grid grid-cols-4 gap-2'>
+            <div className='grid grid-cols-5 lg:grid-cols-4 gap-2'>
                 <Input
                 className='col-span-3'
                 placeholder='Nota'
@@ -40,7 +41,7 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
                 onChange={(e) => changeNotaEvaluacion(idPromedio, nota.id, parseFloat(e.target.value))}
                 required
                 />
-                <Button className='col-span-1 w-full' variant='outline' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
+                <Button className='col-span-2 lg:col-span-1 w-full' variant='outline' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
                     <TrashIcon className='w-6 h-6' />
                 </Button>
             </div>
