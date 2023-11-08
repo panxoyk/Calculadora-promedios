@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 
-const PromediosForm = () => {
+const AddPromediosForm = () => {
     const { addPromedio } = usePromediosStore()
     const { formulario, changeNombre, changePorcentaje, clearForm } = usePromedioFormStore()
 
@@ -62,4 +62,4 @@ const PromediosForm = () => {
     )
 }
 
-export default PromediosForm
+export default AddPromediosForm

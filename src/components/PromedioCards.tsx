@@ -11,7 +11,7 @@ import {
 import { Button } from '@/components/ui/button'
 import { Cross1Icon } from '@radix-ui/react-icons'
 
-const PromediosList = () => {
+const PromedioCards = () => {
     const { promedios, deletePromedio } = usePromediosStore()
 
     return (
@@ -42,4 +42,4 @@ const PromediosList = () => {
     )
 }
 
-export default PromediosList
+export default PromedioCards
