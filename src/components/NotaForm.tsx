@@ -16,7 +16,8 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
     return (
         <div className='flex flex-col gap-4 lg:gap-2'>
             <Input
-            placeholder='Nombre'
+            className='rounded-none text-center'
+            placeholder={'Nota ' + nota.id}
             type='text'
             value={nota.nombre}
             onChange={(e) => changeNotaNombre(idPromedio, nota.id, e.target.value)}
@@ -26,11 +27,11 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
             <div className='grid grid-cols-5 lg:grid-cols-4 gap-2'>
                 <Input
                 className='col-span-3'
-                placeholder='Nota'
+                placeholder='0'
                 type='number'
                 step='0.1'
                 value={nota.evaluacion}
-                onChange={(e) => changeNotaEvaluacion(idPromedio, nota.id, parseFloat(e.target.value))}
+                onChange={(event) => changeNotaEvaluacion(idPromedio, nota.id, parseFloat(event.target.value))}
                 required
                 />
                 <Button className='col-span-2 lg:col-span-1 w-full text-muted-foreground' variant='secondary' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>

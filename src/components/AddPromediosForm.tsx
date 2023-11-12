@@ -1,21 +1,25 @@
 import { usePromediosStore } from '../store/promediosStore'
-import { usePromedioFormStore } from '../store/promedioFormStore'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { Label } from '@/components/ui/label'
 
 const AddPromediosForm = () => {
-    const { addPromedio } = usePromediosStore()
-    const { formulario, changeNombre, changePorcentaje, clearForm } = usePromedioFormStore()
+    const { promedios, addPromedio, changePromedioNombre, changePromedioPorcentaje } = usePromediosStore()
+    const { id, nombre, porcentaje } = promedios[promedios.length-1]
 
 	const handleSubmit = (event: React.FormEvent) => {
 		event.preventDefault()
-		addPromedio(
-            formulario.nombre,
-			typeof(formulario.porcentaje) === 'string' ? parseInt(formulario.porcentaje) : 0,
-		)
-		clearForm()
+		addPromedio()
+	}
+
+    const handleInputToNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
+		const value = event.target.value
+		if (value === '') {
+            changePromedioPorcentaje(id, '')
+		} else if (!isNaN(Number(value))) {
+            changePromedioPorcentaje(id, Number(value))
+        }
 	}
 
     return (
@@ -29,10 +33,10 @@ const AddPromediosForm = () => {
                     id='form.nombre'
                     placeholder='Ej: Controles'
                     type='text'
-                    value={formulario.nombre}
+                    value={nombre}
                     onChange={
                         (event) =>
-                        changeNombre(event.target.value)
+                        changePromedioNombre(id, event.target.value)
                     }
                     required
                     autoFocus
@@ -47,10 +51,9 @@ const AddPromediosForm = () => {
                     id='form.porcentaje'
                     placeholder='%'
                     type='number'
-                    value={formulario.porcentaje}
+                    value={porcentaje}
                     onChange={
-                        (event) =>
-                        changePorcentaje(event.target.value)
+                        (event) => handleInputToNumber(event)
                     }
                     required
                     autoComplete='off'

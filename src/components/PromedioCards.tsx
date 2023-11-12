@@ -17,7 +17,7 @@ const PromedioCards = () => {
     return (
         <div className='grid grid-cols-1 gap-y-2 pt-4 mx-4 xl:mx-0'>
             {
-				promedios.map((promedio) => {
+				promedios.slice(0, promedios.length - 1).map((promedio) => {
 					const { id, nombre, porcentaje, notas } = promedio
 					return (
 						<Card className='bg-secondary w-full' key={id}>

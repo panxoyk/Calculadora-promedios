@@ -1,7 +1,7 @@
 export interface Promedio {
     id: number
     nombre: string
-    porcentaje: number
+    porcentaje: number | string
     notas: Nota[]
 }
 
