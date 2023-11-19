@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { PlusIcon } from '@radix-ui/react-icons'
 
 interface AddNotasProps {
-    promedio: Promedio
+    promedio: Promedio,
     notas: Nota[],
 }
 
