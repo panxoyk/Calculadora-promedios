@@ -3,7 +3,7 @@ import { usePromediosStore } from '../store/promediosStore'
 import { Button } from '@/components/ui/button'
 
 const ShowResultado = () => {
-	const { resultado, calculateResultado } = usePromediosStore()
+    const { resultado, calculateResultado } = usePromediosStore()
 
     return (
         <div className='flex flex-col w-9/12 lg:w-fit m-auto gap-2 pt-4'>

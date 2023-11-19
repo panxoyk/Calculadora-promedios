@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button'
 import { PlusIcon } from '@radix-ui/react-icons'
 
 interface AddNotasProps {
-    promedio: Promedio,
-    notas: Nota[],
+    promedio: Promedio
+    notas: Nota[]
 }
 
 const AddNotas = ({ promedio, notas }: AddNotasProps) => {

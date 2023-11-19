@@ -2,8 +2,8 @@ import { create } from "zustand";
 import { Promedio } from '../types/types'
 
 interface PromediosState {
-    promedios: Promedio[],
-    resultado: number,
+    promedios: Promedio[]
+    resultado: number
     addPromedio: () => void
     changePromedioNombre: (idPromedio: number, nuevoNombre: string) => void
     changePromedioPorcentaje: (idPromedio: number, nuevoPorcentaje: number | string) => void
@@ -16,12 +16,12 @@ interface PromediosState {
 }
 
 export const usePromediosStore = create<PromediosState>((set, get) => ({
-    promedios: [ {
+    promedios: [{
         id: 1,
         nombre: '',
         porcentaje: '',
-        notas: [ { id: 1, nombre: '', evaluacion: '' } ],
-    } ],
+        notas: [{ id: 1, nombre: '', evaluacion: '' }],
+    }],
     resultado: 0,
     addPromedio: () => {
         const { promedios } = get()
@@ -32,9 +32,9 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                     id: promedios.length + 1,
                     nombre: '',
                     porcentaje: '',
-                    notas: [ {
+                    notas: [{
                         id: 1, nombre: '', evaluacion: ''
-                    } ]
+                    }]
                 }
             ]
         })
@@ -44,11 +44,11 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promedios.map((promedio) =>
                 promedio.id === idPromedio
-                ? {
-                    ...promedio,
-                    nombre: nuevoNombre,
-                }
-                : promedio
+                    ? {
+                        ...promedio,
+                        nombre: nuevoNombre,
+                    }
+                    : promedio
             ),
         })
     },
@@ -57,11 +57,11 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promedios.map((promedio) =>
                 promedio.id === idPromedio
-                ? {
-                    ...promedio,
-                    porcentaje: nuevoPorcentaje,
-                }
-                : promedio
+                    ? {
+                        ...promedio,
+                        porcentaje: nuevoPorcentaje,
+                    }
+                    : promedio
             ),
         })
     },
@@ -80,14 +80,16 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promedios.map((promedio) =>
                 promedio.id === idPromedio
-                ? { ...promedio, notas: [
-                    ...promedio.notas, {
-                        id: promedio.notas.length + 1,
-                        nombre: '',
-                        evaluacion: '',
+                    ? {
+                        ...promedio, notas: [
+                            ...promedio.notas, {
+                                id: promedio.notas.length + 1,
+                                nombre: '',
+                                evaluacion: '',
+                            }
+                        ]
                     }
-                ] }
-                : promedio
+                    : promedio
             )
         })
     },
@@ -96,14 +98,14 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promedios.map((promedio) =>
                 promedio.id === idPromedio
-                ? {
-                    ...promedio,
-                    notas: promedio.notas.map((nota) => nota.id === idNota
-                        ? { ...nota, nombre: nuevoNombre }
-                        : nota
-                    ),
-                }
-                : promedio
+                    ? {
+                        ...promedio,
+                        notas: promedio.notas.map((nota) => nota.id === idNota
+                            ? { ...nota, nombre: nuevoNombre }
+                            : nota
+                        ),
+                    }
+                    : promedio
             ),
         })
     },
@@ -112,15 +114,15 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promedios.map((promedio) =>
                 promedio.id === idPromedio
-                ? {
-                    ...promedio,
-                    notas: promedio.notas.map((nota) =>
-                        nota.id === idNota
-                            ? { ...nota, evaluacion: isNaN(nuevaEvaluacion) ? '' : nuevaEvaluacion }
-                            : nota
-                    )
-                }
-                : promedio
+                    ? {
+                        ...promedio,
+                        notas: promedio.notas.map((nota) =>
+                            nota.id === idNota
+                                ? { ...nota, evaluacion: isNaN(nuevaEvaluacion) ? '' : nuevaEvaluacion }
+                                : nota
+                        )
+                    }
+                    : promedio
             ),
         })
     },
@@ -129,8 +131,8 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promedios.map((promedio) => {
                 const notasUpdated = promedio.id === idPromedio
-                ? promedio.notas.filter((nota) => nota.id !== idNota)
-                : promedio.notas
+                    ? promedio.notas.filter((nota) => nota.id !== idNota)
+                    : promedio.notas
                 notasUpdated.forEach((nota, index) => {
                     nota.id = index + 1
                 })
@@ -147,16 +149,16 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         promedios.map((promedio) => {
             let promedioNotas = 0
             promedio.notas.map((nota) => {
-                typeof(nota.evaluacion) === 'number'
-                ? promedioNotas += nota.evaluacion
-                : promedioNotas
+                typeof (nota.evaluacion) === 'number'
+                    ? promedioNotas += nota.evaluacion
+                    : promedioNotas
             })
             promedio.notas.length === 0
-            ? promedioNotas = 0
-            : promedioNotas = promedioNotas/promedio.notas.length
-            typeof(promedio.porcentaje) === 'number'
-            ? promedioFinal += promedioNotas * promedio.porcentaje/100
-            : promedioFinal
+                ? promedioNotas = 0
+                : promedioNotas = promedioNotas / promedio.notas.length
+            typeof (promedio.porcentaje) === 'number'
+                ? promedioFinal += promedioNotas * promedio.porcentaje / 100
+                : promedioFinal
         })
         set({
             resultado: Number(promedioFinal.toFixed(2))

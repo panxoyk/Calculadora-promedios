@@ -12,11 +12,11 @@ import { Button } from '@/components/ui/button'
 import { Cross1Icon } from '@radix-ui/react-icons'
 
 const PromedioCards = () => {
-    const { promedios, deletePromedio } = usePromediosStore()
+	const { promedios, deletePromedio } = usePromediosStore()
 
-    return (
-        <div className='grid grid-cols-1 gap-y-2 pt-4 mx-4 xl:mx-0'>
-            {
+	return (
+		<div className='grid grid-cols-1 gap-y-2 pt-4 mx-4 xl:mx-0'>
+			{
 				promedios.slice(0, promedios.length - 1).map((promedio) => {
 					const { id, nombre, porcentaje, notas } = promedio
 					return (
@@ -38,8 +38,8 @@ const PromedioCards = () => {
 					)
 				})
 			}
-        </div>
-    )
+		</div>
+	)
 }
 
 export default PromedioCards
