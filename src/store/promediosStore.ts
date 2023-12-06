@@ -1,5 +1,6 @@
 import { create } from "zustand";
 import { Promedio } from '../types/types'
+import { promediosItem, setPromediosItem } from "@/utility/utility";
 
 interface PromediosState {
     promedios: Promedio[]
@@ -16,7 +17,9 @@ interface PromediosState {
 }
 
 export const usePromediosStore = create<PromediosState>((set, get) => ({
-    promedios: [{
+    promedios: promediosItem
+        ? JSON.parse(promediosItem)
+        : [{
         id: 1,
         nombre: '',
         porcentaje: '',
@@ -38,6 +41,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                 }
             ]
         })
+        setPromediosItem(get().promedios)
     },
     changePromedioNombre: (idPromedio, nuevoNombre) => {
         const { promedios } = get()
@@ -51,6 +55,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                     : promedio
             ),
         })
+        setPromediosItem(get().promedios)
     },
     changePromedioPorcentaje: (idPromedio, nuevoPorcentaje) => {
         const { promedios } = get()
@@ -64,6 +69,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                     : promedio
             ),
         })
+        setPromediosItem(get().promedios)
     },
     deletePromedio: (idPromedio) => {
         const { promedios } = get()
@@ -74,6 +80,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         set({
             promedios: promediosUpdated
         })
+        setPromediosItem(get().promedios)
     },
     addNota: (idPromedio) => {
         const { promedios } = get()
@@ -92,6 +99,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                     : promedio
             )
         })
+        setPromediosItem(get().promedios)
     },
     changeNotaNombre: (idPromedio, idNota, nuevoNombre) => {
         const { promedios } = get();
@@ -108,6 +116,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                     : promedio
             ),
         })
+        setPromediosItem(get().promedios)
     },
     changeNotaEvaluacion: (idPromedio, idNota, nuevaEvaluacion) => {
         const { promedios } = get();
@@ -125,6 +134,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                     : promedio
             ),
         })
+        setPromediosItem(get().promedios)
     },
     deleteNota: (idPromedio, idNota) => {
         const { promedios } = get()
@@ -142,6 +152,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
                 }
             })
         })
+        setPromediosItem(get().promedios)
     },
     calculateResultado: () => {
         const { promedios } = get()
