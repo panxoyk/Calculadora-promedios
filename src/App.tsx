@@ -10,9 +10,13 @@ const App = () => {
 		<ThemeProvider storageKey='vite-ui-theme'>
 			<div className='m-auto max-w-screen-lg my-8 relative'>
 				<AppTittle />
-				<AddPromediosForm />
+				<div className='border-b pb-4 pt-4'>
+					<div className='flex flex-col lg:flex-row md:w-3/4 gap-4 lg:gap-0 mx-auto items-stretch '>
+						<AddPromediosForm />
+						<ShowResultado />
+					</div>
+				</div>
 				<PromedioCards />
-				<ShowResultado />
 				<ButtonToggleMode />
 			</div>
 		</ThemeProvider>
