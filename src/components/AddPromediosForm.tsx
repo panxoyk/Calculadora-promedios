@@ -26,7 +26,7 @@ const AddPromediosForm = () => {
     }
 
     return (
-        <Card className='mx-4 lg:max-w-sm lg:m-auto bg-secondary'>
+        <Card className='mx-4 md:max-w-sm md:m-auto'>
             <CardHeader className='p-0 pt-4 md:pt-6'>
                 <CardTitle className='text-xl md:text-2xl text-center font-mono'> Añadir evaluación </CardTitle>
             </CardHeader>

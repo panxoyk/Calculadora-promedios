@@ -11,12 +11,17 @@ const App = () => {
 			<div className='m-auto max-w-screen-lg my-8 relative'>
 				<AppTittle />
 				<div className='border-b pb-4 pt-4'>
-					<div className='flex flex-col lg:flex-row md:w-3/4 gap-4 lg:gap-0 mx-auto items-stretch '>
+					<div className='flex flex-col md:flex-row lg:w-3/4 gap-4 md:gap-0 mx-auto items-stretch'>
 						<AddPromediosForm />
-						<ShowResultado />
+						<div className='max-md:hidden'>
+							<ShowResultado />
+						</div>
 					</div>
 				</div>
 				<PromedioCards />
+				<div className='md:hidden pt-6'>
+					<ShowResultado />
+				</div>
 				<ButtonToggleMode />
 			</div>
 		</ThemeProvider>

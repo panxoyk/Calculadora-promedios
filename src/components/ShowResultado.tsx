@@ -7,7 +7,7 @@ const ShowResultado = () => {
     const { resultado, calculateResultado } = usePromediosStore()
 
     return (
-        <Card className='flex flex-col lg:w-fit mx-4 my-0 justify-center'>
+        <Card className='flex flex-col md:w-fit mx-4 my-0 justify-center h-full'>
             <CardContent className='pt-6'>
                 <div className='text-center text-3xl dark:text-secondary relative rounded dark:bg-accent-foreground bg-muted px-[0.3rem] py-[0.2rem] font-mono font-semibold'>
                     {resultado}
