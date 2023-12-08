@@ -23,7 +23,7 @@ const PromedioCards = () => {
 						<Card className='bg-secondary w-full' key={id}>
 							<CardHeader>
 								<CardTitle className='flex flex-row justify-between items-center'>
-									<div className='text-lg lg:text-2xl font-semibold'>
+									<div className='text-lg lg:text-xl font-semibold'>
 										{nombre} <span className='text-lg lg:text-2xl text-muted-foreground'> {porcentaje}% </span>
 									</div>
 									<Button className='text-destructive dark:text-destructive-foreground' variant='link' size='icon' onClick={() => deletePromedio(id)}>
