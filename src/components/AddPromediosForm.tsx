@@ -13,6 +13,8 @@ const AddPromediosForm = () => {
     const { promedios, addPromedio, changePromedioNombre, changePromedioPorcentaje, changePromedioTipo } = usePromediosStore()
     const { id, nombre, porcentaje, tipo } = promedios[promedios.length - 1]
 
+    console.log(tipo)
+
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()
         addPromedio()
@@ -73,6 +75,7 @@ const AddPromediosForm = () => {
                         </div>
                         <div className='flex flex-row items-center gap-2 whitespace-nowrap h-full'>
                             <RadioGroup
+                                value={tipo}
                                 defaultValue={tipo}
                                 onValueChange={(value: Tipo) => handleInputToTipo(value)}
                                 className="grid grid-cols-2 items-center gap-2"
