@@ -1,4 +1,4 @@
-import { useVisibilidadStore } from '@/store/visibilidadStore'
+import { useVisibilidadStore } from '../store/visibilidadStore'
 
 import { Button } from '@/components/ui/button'
 
