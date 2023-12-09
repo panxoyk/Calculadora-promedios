@@ -1,7 +1,7 @@
 import { usePromediosStore } from '../store/promediosStore'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter } from './ui/card'
+import { Card, CardContent, CardFooter } from '@/components/ui/card'
 
 const ShowResultado = () => {
     const { resultado, calculateResultado } = usePromediosStore()

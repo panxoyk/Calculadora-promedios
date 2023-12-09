@@ -26,6 +26,7 @@ export const usePromediosStore = create<PromediosState>((set, get) => ({
         nombre: '',
         porcentaje: '',
         notas: [{ id: 1, nombre: '', evaluacion: '' }],
+        tipo: 'promedio'
     }],
     addPromedio: () => {
         const { promedios } = get()

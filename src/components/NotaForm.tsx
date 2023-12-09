@@ -1,9 +1,10 @@
-import { usePromediosStore } from '../store/promediosStore'
 import { Nota } from '../types/types'
+import { usePromediosStore } from '../store/promediosStore'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { TrashIcon } from '@radix-ui/react-icons'
+
+import { TrashIcon } from 'lucide-react'
 
 interface NotaFormProps {
     idPromedio: number
@@ -11,7 +12,7 @@ interface NotaFormProps {
 }
 
 const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
-    const { changeNotaEvaluacion, deleteNota } = usePromediosStore()
+    const { changeNotaCalificacion, deleteNota } = usePromediosStore()
 
     return (
         <div className='grid grid-cols-5 gap-2 p-2 border rounded-md border-solid border-muted-foreground'>
@@ -20,12 +21,12 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
                     placeholder='0'
                     type='number'
                     step='0.1'
-                    value={nota.evaluacion}
-                    onChange={(event) => changeNotaEvaluacion(idPromedio, nota.id, parseFloat(event.target.value))}
+                    value={nota.calificacion}
+                    onChange={(event) => changeNotaCalificacion(idPromedio, nota.id, parseFloat(event.target.value))}
                     required
                 />
                 <Button className='col-span-2 w-full text-muted-foreground shadow-none' variant='link' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
-                    <TrashIcon className='w-6 h-6' />
+                    <TrashIcon />
                 </Button>
         </div>
     )

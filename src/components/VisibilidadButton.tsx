@@ -1,5 +1,6 @@
-import { Button } from './ui/button'
 import { useVisibilidadStore } from '@/store/visibilidadStore'
+
+import { Button } from '@/components/ui/button'
 
 import { Layers3Icon, XIcon } from 'lucide-react'
 

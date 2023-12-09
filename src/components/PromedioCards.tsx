@@ -3,11 +3,10 @@ import { useVisibilidadStore } from '../store/visibilidadStore'
 
 import AddNotas from './AddNotas'
 import VisibilidadButton from './VisibilidadButton'
-
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
-import { Cross1Icon } from '@radix-ui/react-icons'
+import { XIcon } from 'lucide-react'
 
 const PromedioCards = () => {
 	const { promedios, deletePromedio } = usePromediosStore()
@@ -20,13 +19,13 @@ const PromedioCards = () => {
 				<div className='grid grid-cols-1 gap-y-2 pt-4 mx-4 xl:mx-0'>
 					{
 						promedios.slice(0, promedios.length - 1).map((promedio) => {
-							const { id, nombre, porcentaje, notas } = promedio
+							const { id, nombre, porcentaje, notas, tipo } = promedio
 							return (
 								<Card className='bg-secondary w-full' key={id}>
 									<CardHeader>
 										<CardTitle className='flex flex-row justify-between items-center'>
 											<div className='text-lg lg:text-xl font-semibold'>
-												{nombre} <span className='text-lg lg:text-2xl text-muted-foreground'> {porcentaje}% </span>
+												{nombre} <span className='text-lg lg:text-2xl text-muted-foreground'> {porcentaje}% </span> {tipo}
 											</div>
 											<Button
 												className='text-destructive dark:text-destructive-foreground'
@@ -34,7 +33,7 @@ const PromedioCards = () => {
 												size='icon'
 												onClick={() => deletePromedio(id)}
 											>
-												<Cross1Icon className='w-6 h-6' />
+												<XIcon />
 											</Button>
 										</CardTitle>
 									</CardHeader>
