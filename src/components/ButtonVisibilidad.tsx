@@ -14,7 +14,9 @@ const ButtonVisibilidad = () => {
             </div>
             <div className="relative flex justify-center text-xs uppercase">
                 <span className="bg-background px-2 text-muted-foreground">
-                    <Button onClick={() => toggleVisibilidad()} variant='ghost' size='icon'> {visibilidad ? <XIcon /> : <Layers3Icon />} </Button>
+                    <Button onClick={() => toggleVisibilidad()} variant='ghost' size='icon'>
+                        {visibilidad ? <XIcon /> : <Layers3Icon />}
+                    </Button>
                 </span>
             </div>
         </div>

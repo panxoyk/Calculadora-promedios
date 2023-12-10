@@ -14,7 +14,7 @@ const EditorEvaluaciones = () => {
 			<div className={visibilidad ? 'hidden' : ''}>
 				<div className='grid grid-cols-1 gap-y-2 pt-4 mx-4 xl:mx-0'>
 					{
-						evaluaciones.slice(0, evaluaciones.length - 1).map((evaluacion) => <CardEvaluacion evaluacion={evaluacion} />)
+						evaluaciones.slice(0, evaluaciones.length - 1).map((evaluacion) => <CardEvaluacion key={evaluacion.id} evaluacion={evaluacion} />)
 					}
 				</div>
 			</div>

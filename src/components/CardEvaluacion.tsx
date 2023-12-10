@@ -17,17 +17,17 @@ const EvaluacionCard = ({ evaluacion }: EvaluacionCardProps) => {
     const { id, nombre, porcentaje, notas, tipo } = evaluacion
 
     return (
-        <Card className='bg-secondary w-full' key={id}>
+        <Card key={id} className='bg-secondary w-full'>
             <CardHeader>
                 <CardTitle className='flex flex-row justify-between items-center'>
                     <div className='text-lg lg:text-xl font-semibold'>
-                        {nombre} <span className='text-lg lg:text-2xl text-muted-foreground'> {porcentaje}% </span> tipo: {tipo}
+                        {nombre} <span className='text-lg lg:text-2xl text-muted-foreground'> {porcentaje}% </span>
                     </div>
                     <Button
-                        className='text-destructive dark:text-destructive-foreground'
+                        onClick={() => deleteEvaluacion(id)}
                         variant='link'
                         size='icon'
-                        onClick={() => deleteEvaluacion(id)}
+                        className='text-destructive dark:text-destructive-foreground'
                     >
                         <XIcon />
                     </Button>
@@ -36,11 +36,26 @@ const EvaluacionCard = ({ evaluacion }: EvaluacionCardProps) => {
             <CardContent>
                 <div className='grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4'>
                     {
-                        notas.map((nota) => <FormNota key={nota.id} idPromedio={id} nota={nota} />)
+                        notas.map((nota) => {
+                            const disabled = notas.length === 1
+                            const personalizado = tipo === 'personalizado'
+                            return (
+                                <FormNota key={nota.id} idEvaluacion={id} nota={nota} disabled={disabled} personalizado={personalizado} />
+                            )
+                        })
                     }
-                    <Button className='w-full h-full text-primary hover:text-primary hover:border-primary hover:bg-transparent' variant='outline' onClick={() => addNota(id)}>
-                        <PlusIcon />
-                    </Button>
+                    {
+
+                        tipo === 'nota'
+                            ? null
+                            : <Button
+                                onClick={() => addNota(id)}
+                                variant='outline'
+                                className='w-full h-full text-primary hover:text-primary hover:border-primary hover:bg-transparent'
+                            >
+                                <PlusIcon />
+                            </Button>
+                    }
                 </div>
             </CardContent>
         </Card>

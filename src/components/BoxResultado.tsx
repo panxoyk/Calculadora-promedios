@@ -14,7 +14,9 @@ const BoxResultado = () => {
                 </div>
             </CardContent>
             <CardFooter>
-                <Button className='text-xl md:text-xl px-8 font-mono dark:text-foreground h-fit w-full' onClick={() => calculateResultado()}> Calcular Nota Final </Button>
+                <Button onClick={() => calculateResultado()} className='text-xl md:text-xl px-8 font-mono dark:text-foreground h-fit w-full'>
+                    Calcular Nota Final
+                </Button>
             </CardFooter>
 
         </Card>

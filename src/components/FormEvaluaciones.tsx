@@ -27,76 +27,67 @@ const FormEvaluaciones = () => {
         }
     }
 
-    const handleVerifyTipo = (value: Tipo) => {
-        value === 'promedio' || value === 'nota' || value === 'personalizado'
-            ? changeEvaluacionTipo(id, value)
-            : changeEvaluacionTipo(id, tipo)
-    }
-
     return (
         <Card className='mx-4 md:max-w-sm md:m-auto'>
             <CardHeader className='p-0 pt-4 md:pt-6'>
                 <CardTitle className='text-xl md:text-2xl text-center font-mono'> Añadir Evaluación </CardTitle>
             </CardHeader>
             <CardContent className='pt-2 flex items-center'>
-                <form className='grid grid-cols-4 gap-x-2 gap-y-4' onSubmit={handleSubmit}>
+                <form onSubmit={handleSubmit} className='grid grid-cols-4 gap-x-2 gap-y-4'>
                     <div className='col-span-3 flex flex-col gap-2'>
                         <div className='flex flex-row items-center gap-2 whitespace-nowrap h-full'>
-                            <Label className='pl-2' htmlFor="form.nombre"> Nombre </Label>
+                            <Label htmlFor="form.nombre" className='pl-2'> Nombre </Label>
                             <Input
-                                className='pl-4 border-none shadow-none'
                                 id='form.nombre'
+                                value={nombre}
+                                onChange={(event) => changeEvaluacionNombre(id, event.target.value)}
                                 placeholder='Ej: Controles'
                                 type='text'
-                                value={nombre}
-                                onChange={
-                                    (event) =>
-                                        changeEvaluacionNombre(id, event.target.value)
-                                }
                                 required
                                 autoFocus
                                 autoComplete='off'
+                                className='pl-4 border-none shadow-none'
                             />
                         </div>
                         <div className='flex flex-row items-center gap-2 whitespace-nowrap h-full'>
-                            <Label className='pl-2' htmlFor="form.porcentaje"> Porcentaje (%) </Label>
+                            <Label htmlFor="form.porcentaje" className='pl-2'> Porcentaje (%) </Label>
                             <Input
-                                className='pl-4 border-none shadow-none'
                                 id='form.porcentaje'
-                                placeholder='Ej: 20'
-                                type='number'
                                 value={porcentaje}
                                 onChange={handleInputToNumber}
+                                placeholder='Ej: 20'
+                                type='number'
                                 required
                                 autoComplete='off'
+                                className='pl-4 border-none shadow-none'
                             />
                         </div>
                         <div className='flex flex-row items-center gap-2 whitespace-nowrap h-full'>
                             <RadioGroup
                                 value={tipo}
-                                onValueChange={(value: Tipo) => handleVerifyTipo(value)}
+                                onValueChange={(value: Tipo) => changeEvaluacionTipo(id, value)}
                                 className="grid grid-cols-2 items-center gap-2"
                             >
                                 <div>
-                                    <RadioGroupItem value='promedio' id="promedio" className="peer sr-only" />
+                                    <RadioGroupItem id="promedio" value='promedio' className="peer sr-only" />
                                     <Label
-                                    htmlFor="promedio"
-                                    className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                                        htmlFor="promedio"
+                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                                     >
-                                    Promedio
+                                        Promedio
                                     </Label>
                                 </div>
                                 <div>
-                                    <RadioGroupItem value='nota' id="nota" className="peer sr-only" />
+                                    <RadioGroupItem id='nota' value='nota' className="peer sr-only" />
                                     <Label
-                                    htmlFor="nota"
-                                    className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                                        htmlFor="nota"
+                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
                                     >
-                                    Nota
+                                        Nota
                                     </Label>
                                 </div>
                                 <div>
-                                    <RadioGroupItem value='personalizado' id="personalizado" className="peer sr-only" />
+                                    <RadioGroupItem id="personalizado" value='personalizado' className="peer sr-only" />
                                     <Label
                                     htmlFor="personalizado"
                                     className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
