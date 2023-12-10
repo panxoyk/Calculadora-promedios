@@ -1,5 +1,5 @@
 import { Nota } from '../types/types'
-import { usePromediosStore } from '../store/promediosStore'
+import { useEvaluacionesStore } from '../store/evaluacionesStore'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -11,11 +11,11 @@ interface NotaFormProps {
     nota: Nota
 }
 
-const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
-    const { changeNotaCalificacion, deleteNota } = usePromediosStore()
+const FormNota = ({ idPromedio, nota }: NotaFormProps) => {
+    const { changeNotaCalificacion, deleteNota } = useEvaluacionesStore()
 
     return (
-        <div className='grid grid-cols-5 gap-2 p-2 border rounded-md border-solid border-muted-foreground'>
+        <div className='grid grid-cols-4 gap-2 p-2 border rounded-md border-solid border-muted-foreground'>
                 <Input
                     className='col-span-3 border-none shadow-none text-lg'
                     placeholder='0'
@@ -25,11 +25,11 @@ const NotaForm = ({ idPromedio, nota }: NotaFormProps) => {
                     onChange={(event) => changeNotaCalificacion(idPromedio, nota.id, parseFloat(event.target.value))}
                     required
                 />
-                <Button className='col-span-2 w-full text-muted-foreground shadow-none' variant='link' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
+                <Button className='col-span-1 w-full text-muted-foreground shadow-none' variant='link' size='icon' onClick={() => deleteNota(idPromedio, nota.id)}>
                     <TrashIcon />
                 </Button>
         </div>
     )
 }
 
-export default NotaForm
+export default FormNota

@@ -1,5 +1,5 @@
 import { Tipo } from '../types/types'
-import { usePromediosStore } from '../store/promediosStore'
+import { useEvaluacionesStore } from '../store/evaluacionesStore'
 
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
@@ -9,30 +9,28 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 
 import { ListPlusIcon } from 'lucide-react'
 
-const AddPromediosForm = () => {
-    const { promedios, addPromedio, changePromedioNombre, changePromedioPorcentaje, changePromedioTipo } = usePromediosStore()
-    const { id, nombre, porcentaje, tipo } = promedios[promedios.length - 1]
-
-    console.log(tipo)
+const FormEvaluaciones = () => {
+    const { evaluaciones, addEvaluacion, changeEvaluacionNombre, changeEvaluacionPorcentaje, changeEvaluacionTipo } = useEvaluacionesStore()
+    const { id, nombre, porcentaje, tipo } = evaluaciones[evaluaciones.length - 1]
 
     const handleSubmit = (event: React.FormEvent) => {
         event.preventDefault()
-        addPromedio()
+        addEvaluacion()
     }
 
     const handleInputToNumber = (event: React.ChangeEvent<HTMLInputElement>) => {
         const value = event.target.value
         if (value === '') {
-            changePromedioPorcentaje(id, '')
+            changeEvaluacionPorcentaje(id, '')
         } else if (!isNaN(Number(value))) {
-            changePromedioPorcentaje(id, Number(value))
+            changeEvaluacionPorcentaje(id, Number(value))
         }
     }
 
-    const handleInputToTipo = (value: Tipo) => {
+    const handleVerifyTipo = (value: Tipo) => {
         value === 'promedio' || value === 'nota' || value === 'personalizado'
-            ? changePromedioTipo(id, value)
-            : changePromedioTipo(id, tipo)
+            ? changeEvaluacionTipo(id, value)
+            : changeEvaluacionTipo(id, tipo)
     }
 
     return (
@@ -53,7 +51,7 @@ const AddPromediosForm = () => {
                                 value={nombre}
                                 onChange={
                                     (event) =>
-                                        changePromedioNombre(id, event.target.value)
+                                        changeEvaluacionNombre(id, event.target.value)
                                 }
                                 required
                                 autoFocus
@@ -76,8 +74,7 @@ const AddPromediosForm = () => {
                         <div className='flex flex-row items-center gap-2 whitespace-nowrap h-full'>
                             <RadioGroup
                                 value={tipo}
-                                defaultValue={tipo}
-                                onValueChange={(value: Tipo) => handleInputToTipo(value)}
+                                onValueChange={(value: Tipo) => handleVerifyTipo(value)}
                                 className="grid grid-cols-2 items-center gap-2"
                             >
                                 <div>
@@ -119,4 +116,4 @@ const AddPromediosForm = () => {
     )
 }
 
-export default AddPromediosForm
+export default FormEvaluaciones

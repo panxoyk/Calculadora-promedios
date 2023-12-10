@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 
 import { Layers3Icon, XIcon } from 'lucide-react'
 
-const VisbilidadButton = () => {
+const ButtonVisibilidad = () => {
     const { visibilidad, toggleVisibilidad } = useVisibilidadStore()
 
     return (
@@ -21,4 +21,4 @@ const VisbilidadButton = () => {
     )
 }
 
-export default VisbilidadButton
+export default ButtonVisibilidad

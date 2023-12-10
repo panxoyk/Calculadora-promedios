@@ -1,5 +1,5 @@
-import { Promedio } from '../types/types'
+import { Evaluacion } from '../types/types'
 
-export const promediosItem = localStorage.getItem('promedios')
+export const evaluacionesItem = localStorage.getItem('evaluaciones')
 
-export const setPromediosItem = (promedios: Promedio[]) => localStorage.setItem('promedios', JSON.stringify(promedios))
+export const setEvaluacionesItem = (evaluaciones: Evaluacion[]) => localStorage.setItem('evaluaciones', JSON.stringify(evaluaciones))

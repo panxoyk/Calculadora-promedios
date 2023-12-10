@@ -1,10 +1,10 @@
-import { usePromediosStore } from '../store/promediosStore'
+import { useEvaluacionesStore } from '../store/evaluacionesStore'
 
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 
-const ShowResultado = () => {
-    const { resultado, calculateResultado } = usePromediosStore()
+const BoxResultado = () => {
+    const { resultado, calculateResultado } = useEvaluacionesStore()
 
     return (
         <Card className='flex flex-col md:w-fit mx-4 my-0 justify-center h-full'>
@@ -21,4 +21,4 @@ const ShowResultado = () => {
     )
 }
 
-export default ShowResultado
+export default BoxResultado

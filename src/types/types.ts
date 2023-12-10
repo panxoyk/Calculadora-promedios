@@ -1,6 +1,6 @@
 export type Tipo = 'promedio' | 'nota' | 'personalizado'
 
-export interface Promedio {
+export interface Evaluacion {
     id: number
     nombre: string
     porcentaje: number | string
