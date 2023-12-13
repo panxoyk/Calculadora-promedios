@@ -72,7 +72,7 @@ const FormEvaluaciones = () => {
                                     <RadioGroupItem id="promedio" value='promedio' className="peer sr-only" />
                                     <Label
                                         htmlFor="promedio"
-                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground"
                                     >
                                         Promedio
                                     </Label>
@@ -81,7 +81,7 @@ const FormEvaluaciones = () => {
                                     <RadioGroupItem id='nota' value='nota' className="peer sr-only" />
                                     <Label
                                         htmlFor="nota"
-                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground"
                                     >
                                         Nota
                                     </Label>
@@ -90,7 +90,7 @@ const FormEvaluaciones = () => {
                                     <RadioGroupItem id="personalizado" value='personalizado' className="peer sr-only" />
                                     <Label
                                     htmlFor="personalizado"
-                                    className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary"
+                                    className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground"
                                     >
                                     Personalizado
                                     </Label>
