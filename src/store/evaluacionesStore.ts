@@ -218,7 +218,7 @@ export const useEvaluacionesStore = create<EvaluacionesState>((set, get) => ({
                         : notaFinal
                     break
                 }
-                case 'personalizado': {
+                case 'personalizada': {
                     let promedioNotas = 0
                     evaluacion.notas.map((nota) => {
                         typeof (nota.calificacion) === 'number' && typeof (nota.porcentaje) === 'number'

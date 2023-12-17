@@ -72,7 +72,7 @@ const FormEvaluaciones = () => {
                                     <RadioGroupItem id="promedio" value='promedio' className="peer sr-only" />
                                     <Label
                                         htmlFor="promedio"
-                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground"
+                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground hover:cursor-pointer"
                                     >
                                         Promedio
                                     </Label>
@@ -81,24 +81,24 @@ const FormEvaluaciones = () => {
                                     <RadioGroupItem id='nota' value='nota' className="peer sr-only" />
                                     <Label
                                         htmlFor="nota"
-                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground"
+                                        className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground hover:cursor-pointer"
                                     >
                                         Nota
                                     </Label>
                                 </div>
                                 <div>
-                                    <RadioGroupItem id="personalizado" value='personalizado' className="peer sr-only" />
+                                    <RadioGroupItem id="personalizada" value='personalizada' className="peer sr-only" />
                                     <Label
-                                    htmlFor="personalizado"
-                                    className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground"
+                                    htmlFor="personalizada"
+                                    className="flex flex-col items-center justify-between rounded-md border-2 border-transparent p-2 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-muted-foreground [&:has([data-state=checked])]:border-muted-foreground hover:cursor-pointer"
                                     >
-                                    Personalizado
+                                    Personalizada
                                     </Label>
                                 </div>
                             </RadioGroup>
                         </div>
                     </div>
-                    <Button className='col-span-1 w-full h-full text-primary hover:text-primary' variant='link' type='submit'>
+                    <Button className='col-span-1 w-full h-full text-primary hover:text-primary' variant='ghost' type='submit'>
                         <ListPlusIcon />
                     </Button>
                 </form>

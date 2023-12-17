@@ -25,9 +25,9 @@ const EvaluacionCard = ({ evaluacion }: EvaluacionCardProps) => {
                     </div>
                     <Button
                         onClick={() => deleteEvaluacion(id)}
-                        variant='link'
+                        variant='outline'
                         size='icon'
-                        className='text-destructive dark:text-destructive-foreground'
+                        className='text-destructive hover:text-destructive hover:border-primary  dark:text-red-500 dark:hover:text-red-500'
                     >
                         <XIcon />
                     </Button>
@@ -38,9 +38,10 @@ const EvaluacionCard = ({ evaluacion }: EvaluacionCardProps) => {
                     {
                         notas.map((nota) => {
                             const disabled = notas.length === 1
-                            const personalizado = tipo === 'personalizado'
+                            const personalizada = tipo === 'personalizada'
+                            const single = tipo === 'nota'
                             return (
-                                <FormNota key={nota.id} idEvaluacion={id} nota={nota} disabled={disabled} personalizado={personalizado} />
+                                <FormNota key={nota.id} idEvaluacion={id} nota={nota} disabled={disabled} personalizada={personalizada} single={single} />
                             )
                         })
                     }

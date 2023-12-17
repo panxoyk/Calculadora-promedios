@@ -1,4 +1,4 @@
-export type Tipo = 'promedio' | 'nota' | 'personalizado'
+export type Tipo = 'promedio' | 'nota' | 'personalizada'
 
 export interface Evaluacion {
     id: number
