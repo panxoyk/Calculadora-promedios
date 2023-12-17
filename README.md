@@ -1,5 +1,5 @@
 # Calculadora de Nota Final
 
-Demo: [https://calculadora-nota-final.vercel.app/][def]
+Demo: [https://calculadora-nota-final.vercel.app/][demo_link]
 
-[def]: https://calculadora-nota-final.vercel.app/
+[demo_link]: https://calculadora-nota-final.vercel.app/
